@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <h2 class="popup1__show">Popup 1</h2>
+    <h2 class="popup2__show">Popup 2</h2>
+
+    <div class="popup popup1__overlay">
+        <div class=" popup1">
+            <h1 class="popup__title">Popup with absolute positioning and fixed size</h1>
+            <p class="popup__text">Самый типичный popup, с выравниванием с помощью относительного позиционирования (left: 50%, top: 50%) и отрицательных margin'ов(margin-left: - width/2, margin-top: - height/2)
+            </p>
+            <button class="btn__add-content btn__add-content-js">Add content</button>
+            <h3 class="plus">Плюсы</h2>
+            <ul>
+                <li>Простой в написании</li>
+            </ul>
+            <h3 class="minus">Минусы</h2>
+            <ul>
+                <li>Фиксированный размер (здесь 600px*400px)</li>
+                <li>Если у popup'a есть внутренние отступы и рамки то для работы в IE8- нужен ручной просчёт ширины и высоты (width || height = required width || height - 2*padding - 2*border-width)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="popup popup2__overlay">
+        <div class=" popup2">
+            <h1 class="popup__title">Popup depending on the content</h1>
+            <p class="popup__text">
+            </p>
+            <button class="btn__add-content btn__add-content-js">Add content</button>
+            <h3 class="plus">Плюсы</h2>
+            <ul>
+                <li></li>
+            </ul>
+            <h3 class="minus">Минусы</h2>
+            <ul>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+</html>
