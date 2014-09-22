@@ -6,39 +6,68 @@
     <link href="main.css" rel="stylesheet">
 </head>
 <body>
-    <h2 class="popup1__show">Popup 1</h2>
-    <h2 class="popup2__show">Popup 2</h2>
+    <a href="javascript:void(0)" class="popup1__show">Popup 1</a>
+    <a href="javascript:void(0)" class="popup2__show">Popup 2</a>
+    <a href="javascript:void(0)" class="popup3__show">Popup 3</a>
 
-    <div class="popup popup1__overlay">
-        <div class=" popup1">
-            <h1 class="popup__title">Popup with absolute positioning and fixed size</h1>
-            <p class="popup__text">Самый типичный popup, с выравниванием с помощью относительного позиционирования (left: 50%, top: 50%) и отрицательных margin'ов(margin-left: - width/2, margin-top: - height/2)
+    <!--[if lt IE 9]><div class="popup__overlay popup1__overlay popup1__overlay__ie"></div><![endif]-->
+    <div class="popup__overlay popup1__overlay">
+        <div class="popup popup1">
+            <h1 class="popup__title">Popup with absolute positioning and height fixed size</h1>
+            <p class="popup__text">Самый типичный popup, с выравниванием с помощью относительного позиционирования (left: 50%, top: 50%) и отрицательных margin'ов(margin-left: - width/2, margin-top: - height/2).
+                Можно задать ширину в процентах, тогда margin-left не нужен, а left: 50% - width/2 (в данном случае width: 60%, left: 20%)
             </p>
             <button class="btn__add-content btn__add-content-js">Add content</button>
             <h3 class="plus">Плюсы</h2>
             <ul>
                 <li>Простой в написании</li>
+                <li>"Резиновая" ширина</li>
+                <li>Поддержка IE6 и выше</li>
             </ul>
             <h3 class="minus">Минусы</h2>
             <ul>
-                <li>Фиксированный размер (здесь 600px*400px)</li>
-                <li>Если у popup'a есть внутренние отступы и рамки то для работы в IE8- нужен ручной просчёт ширины и высоты (width || height = required width || height - 2*padding - 2*border-width)</li>
+                <li>Фиксированная высота</li>
+                <li>Если у popup'a есть внутренние отступы и рамки то для точного отображения размеров в IE7 и ниже нужен ручной просчёт ширины и высоты (width || height = required width || height - 2*padding - 2*border-width)</li>
             </ul>
         </div>
     </div>
-    <div class="popup popup2__overlay">
-        <div class=" popup2">
+
+    <!--[if lt IE 9]><div class="popup__overlay popup2__overlay popup2__overlay__ie"></div><![endif]-->
+    <div class="popup__overlay popup2__overlay">
+        <div class="popup popup2">
             <h1 class="popup__title">Popup depending on the content</h1>
             <p class="popup__text">
             </p>
             <button class="btn__add-content btn__add-content-js">Add content</button>
             <h3 class="plus">Плюсы</h2>
             <ul>
-                <li></li>
+                <li>Резиновый</li>
+                <li>Всегда находится в центре экрана, вне зависимости от кол-ва контента</li>
+                <li>Можно выставить максимальную ширину и высота popup'a</li>
             </ul>
             <h3 class="minus">Минусы</h2>
             <ul>
-                <li></li>
+                <li>В IE7 и ниже не работает вертикальное выравнивание</li>
+            </ul>
+        </div>
+        <!--[if lt IE 9]><div class="popup2__valignfix"></div><![endif]-->
+    </div>
+    
+    <!--[if lt IE 9]><div class="popup__overlay popup3__overlay popup3__overlay__ie"></div><![endif]-->
+    <div class="popup__overlay popup3__overlay">
+        <div class="popup popup3">
+            <h1 class="popup__title">Popup using flexbox</h1>
+            <p class="popup__text">
+            </p>
+            <button class="btn__add-content btn__add-content-js">Add content</button>
+            <h3 class="plus">Плюсы</h2>
+            <ul>
+                <li>Минимум кода (2 блока и 3 свойства)</li>
+            </ul>
+            <h3 class="minus">Минусы</h2>
+            <ul>
+                <li>Очень много префиксов (<u>autoprefixer</u> спасает)</li>
+                <li>Не работает в IE9 и ниже (для IE10 нужна старая версия спецификации - FLEXBOX 2009)</li>
             </ul>
         </div>
     </div>

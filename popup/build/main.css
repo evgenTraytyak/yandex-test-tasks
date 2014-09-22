@@ -31,8 +31,7 @@ ul li {
 .btn__add-content {
     margin: 0;
     padding: 0 16px;
-    -webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.1);
-            box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
     border: 1px solid #ccc;
     outline-color: #FFDB4C;
     border-radius: 3px;
@@ -86,9 +85,7 @@ ul li {
         left: 20%;
         top: 50%;
         overflow: auto;
-        -webkit-box-sizing: border-box;
-           -moz-box-sizing: border-box;
-                box-sizing: border-box;
+        box-sizing: border-box;
         background: white;
         }
 
@@ -136,18 +133,9 @@ ul li {
 /* Popup 3 */
 
 .popup3__overlay {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; 
-    -webkit-box-pack: center; 
-    -webkit-justify-content: center; 
-        -ms-flex-pack: center; 
-            justify-content: center; 
+    align-items: center; 
+    justify-content: center; 
     background: rgba(0,0,0,0.7);
     }
     .popup3 {
