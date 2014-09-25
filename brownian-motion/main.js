@@ -1,10 +1,11 @@
 (function () {
-  var NUMBER_OF_CIRCLES = 200,
+  var NUMBER_OF_CIRCLES = 20,
       circleRadius = 10,
       data = [],
       width = document.body.clientWidth,
       height = 600,
-      cursorRadius = 50;
+      cursorRadius = 50,
+      PI = Math.PI;
 
   var svg = d3.select("body").append("svg")
     .attr({
@@ -24,7 +25,7 @@
         y: height/2,
         dx: 0,
         dy: 0,
-        angle: getRandom(0, 360),
+        angle: getRandom(0, PI*2),
         speed: getRandom(6, 12)
       });
   }
@@ -49,16 +50,32 @@
 
   function checkCollisionWall(e) {
     if(e.x >= width) {
-      e.angle = 90 + e.angle;
+      if(e.angle < PI/2) {
+        e.angle = PI - e.angle;
+      } else {
+        e.angle = PI + (2*PI-e.angle);
+      }
     } 
-    if(e.y >= height) {
-      e.angle = 270 - e.angle;
+    if(e.y >= height - circleRadius) {
+      if(e.angle > 3*PI/2) {
+        e.angle = PI*2 - e.angle;
+      } else {
+        e.angle = PI*2 - e.angle;
+      }
     }
     if(e.x < circleRadius) {
-      e.angle = e.angle - 90; 
+      if(e.angle < PI) {
+        e.angle = PI - e.angle;
+      } else {
+        e.angle = PI*3 - e.angle;
+      }
     }
     if(e.y < circleRadius) {
-      e.angle = 90 + e.angle;
+      if(e.angle < PI/2) {
+        e.angle = PI*2 - e.angle;
+      } else {
+        e.angle = PI*2 - e.angle;
+      }
     }
   }
 
@@ -80,8 +97,8 @@
   });
 
   function changeColor(circle){
-    var randomDuration = getRandom(0, 10000);
-    hasYellowColor = circle.attr('fill') == '#ffff00';
+    var randomDuration = getRandom(0, 10000),
+        hasYellowColor = circle.attr('fill') == '#ffff00';
     if(hasYellowColor) {
       circle
         .transition()
