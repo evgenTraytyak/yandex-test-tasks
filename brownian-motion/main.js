@@ -1,5 +1,5 @@
 (function () {
-  var NUMBER_OF_CIRCLES = 20,
+  var NUMBER_OF_CIRCLES = 100,
       circleRadius = 10,
       data = [],
       width = document.body.clientWidth,
